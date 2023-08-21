@@ -2,8 +2,8 @@ import { Colors, HEX } from "./color";
 
 export class Bottle {
   private colors: HEX[];
-  Content(): HEX[] {
-    return this.colors.filter(c => c != Colors.Empty.value)
+  public get Colors(): HEX[] {
+    return this.colors.filter(c => c != Colors.Empty.value);
   }
   Level(): number {
     let pos = this.colors.indexOf(Colors.Empty.value);
@@ -11,6 +11,7 @@ export class Bottle {
   }
   constructor(capacity: number) {
     this.colors = Array(capacity);
+    this.colors.fill(Colors.Empty.value);
   }
   PercentageHeight(): number { return 100 / this.colors.length; }
   public SetColor(color: HEX, index: number) {

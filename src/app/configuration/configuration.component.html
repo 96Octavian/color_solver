@@ -1,13 +1,13 @@
 <div class="bowl" *ngFor="let bottle of configuration.bottles">
-    <div *ngFor="let color of bottle.Content(); let i = index" class="liquid" [ngStyle]="{
+    <div *ngFor="let color of bottle.Colors; let i = index" [ngStyle]="{
             'background': color,
             'filter': 'drop-shadow(0 0 80px' + color + ')',
             'top': (100 - (i + 1) * bottle.PercentageHeight()) + '%',
             'bottom': (i * bottle.PercentageHeight()) + '%'
         }" [ngClass]="{
+            'liquid': true,
             'bottom': i==0,
             'middle': i!=0,
-            'top': i == bottle.Level() - 1
         }">
     </div>
 </div>
