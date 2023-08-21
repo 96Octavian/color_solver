@@ -1,0 +1,17 @@
+<mat-form-field>
+    <mat-label>Bottle capacity</mat-label>
+    <input matInput #input [(ngModel)]="Capacity" type="number">
+</mat-form-field>
+
+<ng-container *ngFor="let index of colorCount()">
+    <mat-form-field>
+        <mat-label>{{ "Color " + index }}</mat-label>
+        <mat-select [(value)]="selectedValues[index]">
+            <mat-option *ngFor="let choice of colorChoices()" [value]="choice.value">{{ choice.name }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</ng-container>
+
+<button mat-fab extended color="primary" (click)="Add()">
+    Add
+</button>
