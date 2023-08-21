@@ -2,6 +2,7 @@ import { Component, Input, } from '@angular/core';
 import { Configuration } from '../utils/configuration';
 import { Color, Colors, HEX, } from '../utils/color';
 import { Bottle } from '../utils/bottle';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-addbottle',
@@ -10,6 +11,7 @@ import { Bottle } from '../utils/bottle';
 })
 export class AddbottleComponent {
   @Input() configuration: Configuration | any;
+  @Input() drawer: MatDrawer | any;
   private capacity: number = 0;
   @Input() public set Capacity(val: number) {
     this.capacity = val;
@@ -28,9 +30,12 @@ export class AddbottleComponent {
   selectedValues: HEX[] = [];
 
   Add(): void {
-    let bottle: Bottle = new Bottle(this.capacity);
-    this.selectedValues.filter(c => c != Colors.Empty.value).forEach((color, index) => bottle.SetColor(color, index));
-    this.configuration.AddBottle(bottle);
+    if (this.capacity > 0) {
+      let bottle: Bottle = new Bottle(this.capacity);
+      this.selectedValues.filter(c => c != Colors.Empty.value).forEach((color, index) => bottle.SetColor(color, index));
+      this.configuration.AddBottle(bottle);
+    }
+    this.drawer.close();
   }
 
 }
