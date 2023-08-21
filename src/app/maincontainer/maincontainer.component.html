@@ -1,11 +1,12 @@
 <mat-drawer-container class="main-container" autosize hasBackdrop>
     <mat-drawer #drawer class="sidenav" mode="side" position="end">
-        <app-addbottle [configuration]="configuration"></app-addbottle>
+        <app-addbottle [configuration]="configuration" [drawer]="drawer"></app-addbottle>
     </mat-drawer>
 
     <div class="main-content">
-        <app-configuration [configuration]="configuration" ></app-configuration>
-        <button mat-fab extended="" matTooltip="Add bottle" color="accent" aria-label="FAB to add bottle" (click)="drawer.toggle()">
+        <app-configuration [configuration]="configuration"></app-configuration>
+        <button mat-fab extended="" matTooltip="Add bottle" color="accent" aria-label="FAB to add bottle"
+            (click)="drawer.toggle()">
             <mat-icon>add</mat-icon>
             Add bottle
         </button>
