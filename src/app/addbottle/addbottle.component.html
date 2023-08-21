@@ -12,6 +12,6 @@
     </mat-form-field>
 </ng-container>
 
-<button mat-fab extended color="primary" (click)="Add()">
+<button mat-fab extended color="primary" (click)="Add()" [disabled]="Capacity == 0">
     Add
 </button>
