@@ -36,6 +36,7 @@ export class AddbottleComponent {
       this.configuration.AddBottle(bottle);
     }
     this.drawer.close();
+    this.Capacity = 0;
   }
 
 }

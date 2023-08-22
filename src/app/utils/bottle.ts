@@ -1,6 +1,9 @@
 import { Colors, HEX } from "./color";
 
 export class Bottle {
+  public get Capacity(): number {
+    return this.capacity;
+  }
   private colors: HEX[];
   public get Colors(): HEX[] {
     return this.colors.filter(c => c != Colors.Empty.value);
@@ -9,7 +12,7 @@ export class Bottle {
     let pos = this.colors.indexOf(Colors.Empty.value);
     return pos >= 0 ? pos : this.colors.length;
   }
-  constructor(capacity: number) {
+  constructor(private capacity: number) {
     this.colors = Array(capacity);
     this.colors.fill(Colors.Empty.value);
   }

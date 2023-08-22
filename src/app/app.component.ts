@@ -22,13 +22,12 @@ export class AppComponent implements OnInit {
     bottle = new Bottle(4);
     bottle.SetColor(Colors.Green.value, 0);
     bottle.SetColor(Colors.Green.value, 1);
+    bottle.SetColor(Colors.Green.value, 2);
     this.configuration.AddBottle(bottle);
-
-    setTimeout(() => {
-      let bottle: Bottle = new Bottle(4);
-      bottle.SetColor(Colors.Pink.value, 0);
-      this.configuration.AddBottle(bottle);
-    }, 5000)
+    bottle = new Bottle(4);
+    bottle.SetColor(Colors.Pink.value, 0);
+    bottle.SetColor(Colors.Pink.value, 1);
+    this.configuration.AddBottle(bottle);
   }
 
 }

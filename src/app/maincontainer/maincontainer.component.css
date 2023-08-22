@@ -19,3 +19,12 @@
   background: #69f0ae;
   width: 30%;
 }
+
+.button-column{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

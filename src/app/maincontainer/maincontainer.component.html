@@ -5,11 +5,17 @@
 
     <div class="main-content">
         <app-configuration [configuration]="configuration"></app-configuration>
-        <button mat-fab extended="" matTooltip="Add bottle" color="accent" aria-label="FAB to add bottle"
-            (click)="drawer.toggle()">
-            <mat-icon>add</mat-icon>
-            Add bottle
-        </button>
+        <div class="button-column">
+            <button mat-fab extended="" matTooltip="Add bottle" color="accent" aria-label="FAB to add bottle" style="margin: 1rem;"
+                (click)="drawer.toggle()">
+                <mat-icon>add</mat-icon>
+                Add bottle
+            </button>
+            <button mat-fab extended="" matTooltip="Solve" aria-label="FAB to solve puzzle" style="margin: 1rem;">
+                <mat-icon>double_arrow</mat-icon>
+                Solve!
+            </button>
+        </div>
     </div>
 
 </mat-drawer-container>

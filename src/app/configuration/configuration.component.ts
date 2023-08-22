@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Configuration } from '../utils/configuration';
+import { Bottle } from '../utils/bottle';
 
 @Component({
   selector: 'app-configuration',
@@ -8,6 +9,10 @@ import { Configuration } from '../utils/configuration';
 })
 export class ConfigurationComponent {
   @Input() configuration: Configuration = new Configuration();
+
+  Remove(bottle: Bottle):void{
+    this.configuration.RemoveBottle(bottle);
+  }
 }
 
 // TODO: Bottles with less liquid should be smaller, not stretch the liquid
