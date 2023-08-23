@@ -1,5 +1,9 @@
 <!-- <app-configuration [configuration]="Configuration" [solving]="true"></app-configuration> -->
 <app-pagespinner *ngIf="IsSolving" hasBackdrop></app-pagespinner>
 <div class="solution-container" *ngIf="!IsSolving">
-    <app-configuration *ngFor="let configuration of SolvingConfigurationChain" [configuration]="configuration" [solving]="true"></app-configuration>
+    <app-configuration *ngFor="let configuration of SolvingConfigurationChain" [configuration]="configuration"
+        [solving]="true"></app-configuration>
+    <button mat-fab extended="" style="margin: 1rem;" [routerLink]="['/']" (click)="ClearConfiguration()">
+        Refill
+    </button>
 </div>

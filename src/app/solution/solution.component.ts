@@ -43,4 +43,8 @@ export class SolutionComponent implements OnInit {
     }
     return confs.reverse();
   }
+
+  ClearConfiguration(): void{
+    this.configurationService.Clear();
+  }
 }

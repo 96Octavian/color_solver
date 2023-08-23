@@ -28,7 +28,7 @@ export class ConfigurationService {
   constructor() {
     this.configurations.push(this.configuration);
     this.configurationsTree.add(this.configuration.ToString());
-    
+
     let bottle = new Bottle(4, [Colors.Green.value, Colors.Blue.value, Colors.Pink.value, Colors.Yellow.value])
     this.configuration.AddBottle(bottle);
     bottle = new Bottle(4, [Colors.Green.value, Colors.Blue.value, Colors.Yellow.value, Colors.Pink.value])
@@ -38,6 +38,12 @@ export class ConfigurationService {
     bottle = new Bottle(4, [Colors.Blue.value, Colors.Orange.value, Colors.Green.value, Colors.Pink.value])
     this.configuration.AddBottle(bottle);
     bottle = new Bottle(4, [Colors.Blue.value, Colors.Orange.value, Colors.Yellow.value, Colors.Yellow.value])
+    this.configuration.AddBottle(bottle);
+    bottle = new Bottle(4)
+    this.configuration.AddBottle(bottle);
+    bottle = new Bottle(4)
+    this.configuration.AddBottle(bottle);
+    bottle = new Bottle(4)
     this.configuration.AddBottle(bottle);
     bottle = new Bottle(4)
     this.configuration.AddBottle(bottle);
@@ -61,6 +67,7 @@ export class ConfigurationService {
   private configurationsTree: Set<string> = new Set<string>();
   private configurations: Stack<Configuration> = new Stack<Configuration>();
 
+  Clear(): (void) { this.configuration = new Configuration(); }
   Solve(): Promise<boolean> {
     this.solving = true;
     return new Promise((resolve, reject) => {

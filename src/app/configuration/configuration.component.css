@@ -1,9 +1,21 @@
 :host {
     display: flex;
+    height: 100%;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: last baseline;
+    align-items: center;
     justify-content: space-around;
+    overflow: auto;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+
+    /* Hide the scrollbar */
+    &::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, and Opera */
+    }
 }
 
 .bowl-container {
