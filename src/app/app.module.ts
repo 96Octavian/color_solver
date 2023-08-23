@@ -15,13 +15,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { SolutionComponent } from './solution/solution.component';
+import { PagespinnerComponent } from './pagespinner/pagespinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConfigurationComponent,
     MaincontainerComponent,
-    AddbottleComponent
+    AddbottleComponent,
+    SolutionComponent,
+    PagespinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

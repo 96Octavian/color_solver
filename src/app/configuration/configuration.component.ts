@@ -10,6 +10,8 @@ import { Bottle } from '../utils/bottle';
 export class ConfigurationComponent {
   @Input() configuration: Configuration = new Configuration();
 
+  @Input() solving: boolean = false;
+
   Remove(bottle: Bottle):void{
     this.configuration.RemoveBottle(bottle);
   }

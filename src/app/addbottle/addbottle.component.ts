@@ -31,8 +31,7 @@ export class AddbottleComponent {
 
   Add(): void {
     if (this.capacity > 0) {
-      let bottle: Bottle = new Bottle(this.capacity);
-      this.selectedValues.filter(c => c != Colors.Empty.value).forEach((color, index) => bottle.SetColor(color, index));
+      let bottle: Bottle = new Bottle(this.capacity, this.selectedValues.filter(c => c != Colors.Empty.value));
       this.configuration.AddBottle(bottle);
     }
     this.drawer.close();

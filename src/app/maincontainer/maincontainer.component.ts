@@ -1,5 +1,6 @@
-import {Component, Input} from '@angular/core';
+import { Component } from '@angular/core';
 import { Configuration } from '../utils/configuration';
+import { ConfigurationService } from '../utils/configuration.service';
 
 /**
  * @title Autosize sidenav
@@ -11,5 +12,8 @@ import { Configuration } from '../utils/configuration';
 })
 export class MaincontainerComponent {
   showFiller = false;
-  @Input() configuration: Configuration = new Configuration()
+  configuration: Configuration;
+  constructor(private configurationService: ConfigurationService) {
+    this.configuration = configurationService.Configuration;
+  }
 }

@@ -1,10 +1,10 @@
 <div class="bowl-container" *ngFor="let bottle of configuration.Bottles">
-    <div class="bowl"  [style.height]="(5 * bottle.Capacity) + 'rem'">
-        <div *ngFor="let color of bottle.Colors; let i = index" [ngStyle]="{
+    <div class="bowl" [style.height]="(5 * bottle.Capacity) + 'rem'">
+        <div *ngFor="let color of bottle.Content; let i = index" [ngStyle]="{
             'background': color,
             'filter': 'drop-shadow(0 0 80px' + color + ')',
-            'top': (100 - (i + 1) * bottle.PercentageHeight()) + '%',
-            'bottom': (i * bottle.PercentageHeight()) + '%',
+            'top': (100 - (i + 1) * bottle.PercentageHeight) + '%',
+            'bottom': (i * bottle.PercentageHeight) + '%',
         }" [ngClass]="{
             'liquid': true,
             'bottom': i==0,
@@ -12,7 +12,7 @@
         }">
         </div>
     </div>
-    <button mat-fab color="warn" class="yellow-background-color" (click)="Remove(bottle)">
+    <button mat-fab color="warn" class="yellow-background-color" (click)="Remove(bottle)" *ngIf="!solving">
         <mat-icon>close</mat-icon>
     </button>
 </div>
