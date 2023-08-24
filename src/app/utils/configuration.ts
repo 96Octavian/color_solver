@@ -27,13 +27,15 @@ export class Configuration {
 
   public GenerateNextConfigurations(): Configuration[] {
     for (let bottleIndex = 0; bottleIndex < this.bottles.length; ++bottleIndex) {
-      for (let colorIndex = 1; colorIndex <= this.bottles[bottleIndex].TopColorsCount; ++colorIndex) {
+      let alreadyTopped: number[] = new Array<number>();
+      for (let colorIndex = this.bottles[bottleIndex].TopColorsCount; colorIndex > 0; --colorIndex) {
         let newBottles = this.bottles.map(b => new Bottle(b.Capacity, b.Content));
         let colors = newBottles[bottleIndex].PopTopColors(colorIndex);
         for (let newBottleIndex = 0; newBottleIndex < newBottles.length; ++newBottleIndex) {
           if (newBottleIndex == bottleIndex)
             continue;
-          if (newBottles[newBottleIndex].CanAdd(colors)) {
+          if (newBottles[newBottleIndex].CanAdd(colors) && !alreadyTopped.includes(newBottleIndex)) {
+            alreadyTopped.push(newBottleIndex);
             var tmp = newBottles.map(b => new Bottle(b.Capacity, b.Content));
             !tmp[newBottleIndex].TryAdd(colors);
             let childConfiguration = new Configuration(tmp, this);
