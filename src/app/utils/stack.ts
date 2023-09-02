@@ -27,4 +27,8 @@ export class Stack<T> {
     size(): number {
         return this.items.length;
     }
+
+    clear(): void {
+        this.items.length = 0;
+    }
 }

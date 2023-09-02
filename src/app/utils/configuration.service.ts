@@ -62,12 +62,17 @@ export class ConfigurationService {
     // bottle = new Bottle(4, [Colors.Green.value, Colors.Green.value, Colors.Green.value]);
     // this.configuration.AddBottle(bottle);
     // bottle = new Bottle(4, [Colors.Pink.value, Colors.Pink.value]);
+    console.log("Configuration service has been constructed!");
   }
 
   private configurationsTree: Set<string> = new Set<string>();
   private configurations: Stack<Configuration> = new Stack<Configuration>();
 
-  Clear(): (void) { this.configuration = new Configuration(); }
+  Clear(): void {
+    this.configuration.Clear();
+    this.configuration.Clear();
+    this.configurations.clear();
+  }
   Solve(): Promise<boolean> {
     this.solving = true;
     return new Promise((resolve, reject) => {

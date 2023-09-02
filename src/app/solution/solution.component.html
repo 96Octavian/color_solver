@@ -1,9 +1,31 @@
 <!-- <app-configuration [configuration]="Configuration" [solving]="true"></app-configuration> -->
 <app-pagespinner *ngIf="IsSolving" hasBackdrop></app-pagespinner>
 <div class="solution-container" *ngIf="!IsSolving">
-    <app-configuration *ngFor="let configuration of SolvingConfigurationChain" [configuration]="configuration"
-        [solving]="true"></app-configuration>
-    <button mat-fab extended="" style="margin: 1rem;" [routerLink]="['/']" (click)="ClearConfiguration()">
-        Refill
-    </button>
+
+    <ng-container *ngIf="IsSolved">
+        <app-configuration *ngFor="let configuration of SolvingConfigurationChain" [configuration]="configuration"
+            [solving]="true"></app-configuration>
+        <button mat-fab extended="" style="margin: 1rem;" [routerLink]="['/']" (click)="ClearConfiguration()">
+            Refill
+        </button>
+    </ng-container>
+
+    <ng-container *ngIf="!IsSolved">
+        <mat-card class="unsolved-card-container">
+            <mat-card-header>
+                <mat-card-title>No solution found</mat-card-title>
+                <mat-card-subtitle>Puzzle has no solution</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>This bottles configuration could not be solved.</p>
+                <p>Either this puzzle has no solution, or the initial configuration was incorrect, or the solving
+                    algorithm does not work properly.</p>
+                <p>Please click the refill button and try again</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions>
+        </mat-card>
+    </ng-container>
 </div>

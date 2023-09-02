@@ -11,6 +11,9 @@ export class SolutionComponent implements OnInit {
   public get IsSolving(): boolean {
     return this.configurationService.IsSolving
   }
+  public get IsSolved(): boolean {
+    return this.configurationService.IsSolved;
+  }
   public get Configuration(): Configuration {
     return this.configurationService.Configuration;
   }
@@ -44,7 +47,7 @@ export class SolutionComponent implements OnInit {
     return confs.reverse();
   }
 
-  ClearConfiguration(): void{
+  ClearConfiguration(): void {
     this.configurationService.Clear();
   }
 }

@@ -55,7 +55,6 @@ export class Bottle {
       throw new Error("Cannot get more than " + this.TopColorsCount + " colors");
     amount = amount > 0 ? amount : this.TopColorsCount;
     let topColors = this.colors.slice(this.Level - amount, this.Level);
-    console.log("Top colors are " + topColors);
     if (topColors.some(c => c != topColors[0]))
       topColors = new Array<HEX>(0);
     else {

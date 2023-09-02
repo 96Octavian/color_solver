@@ -15,3 +15,12 @@
   justify-content: center;
   align-items: center;
 }
+
+.unsolved-card-container {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+}

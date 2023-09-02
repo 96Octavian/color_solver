@@ -19,6 +19,9 @@ export class Configuration {
   public RemoveBottle(bottle: Bottle): void {
     this.bottles = this.bottles.filter(b => b != bottle);
   }
+  public Clear(): void {
+    this.bottles.length = 0;
+  }
   public get IsSolved(): boolean {
     return this.bottles.every(b => b.IsComplete);
   }
@@ -47,7 +50,6 @@ export class Configuration {
 
     return this.ChildConfigurations;
   }
-
 
   ToString(): string {
     return this.Bottles

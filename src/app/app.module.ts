@@ -18,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { SolutionComponent } from './solution/solution.component';
 import { PagespinnerComponent } from './pagespinner/pagespinner.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
