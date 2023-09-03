@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Configuration } from '../utils/configuration';
 import { ConfigurationService } from '../utils/configuration.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-solution',
@@ -17,7 +18,7 @@ export class SolutionComponent implements OnInit {
   public get Configuration(): Configuration {
     return this.configurationService.Configuration;
   }
-  constructor(private configurationService: ConfigurationService) {
+  constructor(private configurationService: ConfigurationService, private router: Router) {
   }
   ngOnInit(): void {
     // console.log("Configuration:");
@@ -47,7 +48,8 @@ export class SolutionComponent implements OnInit {
     return confs.reverse();
   }
 
-  ClearConfiguration(): void {
+  Refill(): void {
     this.configurationService.Clear();
+    this.router.navigate(['']);
   }
 }

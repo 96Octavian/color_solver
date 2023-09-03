@@ -6,6 +6,8 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-around;
+
+    overflow: auto;
     -ms-overflow-style: none;
     /* IE and Edge */
     scrollbar-width: none;

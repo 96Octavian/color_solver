@@ -21,6 +21,8 @@ export class Configuration {
   }
   public Clear(): void {
     this.bottles.length = 0;
+    this.fatherConfiguration = null;
+    this.childConfigurations.length = 0;
   }
   public get IsSolved(): boolean {
     return this.bottles.every(b => b.IsComplete);
