@@ -20,7 +20,7 @@
   width: 30%;
 }
 
-.button-column{
+.button-column {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;

@@ -6,7 +6,6 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-around;
-    overflow: auto;
     -ms-overflow-style: none;
     /* IE and Edge */
     scrollbar-width: none;
@@ -86,15 +85,7 @@
     border-radius: 50%;
 }
 
-.top::before {
-    filter: brightness(1);
-}
-
 .bottom {
     border-bottom-left-radius: 50rem;
     border-bottom-right-radius: 50rem;
-}
-
-.yellow-background-color {
-    background-color: #ffc400;
 }
