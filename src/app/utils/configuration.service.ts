@@ -27,26 +27,26 @@ export class ConfigurationService {
 
   constructor() {
 
-    let bottle = new Bottle(4, [Colors.Green.value, Colors.Blue.value, Colors.Pink.value, Colors.Yellow.value])
-    this.configuration.AddBottle(bottle);
-    bottle = new Bottle(4, [Colors.Green.value, Colors.Blue.value, Colors.Yellow.value, Colors.Pink.value])
-    this.configuration.AddBottle(bottle);
-    bottle = new Bottle(4, [Colors.Orange.value, Colors.Pink.value, Colors.Orange.value, Colors.Green.value])
-    this.configuration.AddBottle(bottle);
-    bottle = new Bottle(4, [Colors.Blue.value, Colors.Orange.value, Colors.Green.value, Colors.Pink.value])
-    this.configuration.AddBottle(bottle);
-    bottle = new Bottle(4, [Colors.Blue.value, Colors.Orange.value, Colors.Yellow.value, Colors.Yellow.value])
-    this.configuration.AddBottle(bottle);
-    bottle = new Bottle(4)
-    this.configuration.AddBottle(bottle);
-    bottle = new Bottle(4)
-    this.configuration.AddBottle(bottle);
-    bottle = new Bottle(4)
-    this.configuration.AddBottle(bottle);
-    bottle = new Bottle(4)
-    this.configuration.AddBottle(bottle);
-    bottle = new Bottle(4)
-    this.configuration.AddBottle(bottle);
+    // let bottle = new Bottle(4, [Colors.Green.value, Colors.Blue.value, Colors.Pink.value, Colors.Yellow.value])
+    // this.configuration.AddBottle(bottle);
+    // bottle = new Bottle(4, [Colors.Green.value, Colors.Blue.value, Colors.Yellow.value, Colors.Pink.value])
+    // this.configuration.AddBottle(bottle);
+    // bottle = new Bottle(4, [Colors.Orange.value, Colors.Pink.value, Colors.Orange.value, Colors.Green.value])
+    // this.configuration.AddBottle(bottle);
+    // bottle = new Bottle(4, [Colors.Blue.value, Colors.Orange.value, Colors.Green.value, Colors.Pink.value])
+    // this.configuration.AddBottle(bottle);
+    // bottle = new Bottle(4, [Colors.Blue.value, Colors.Orange.value, Colors.Yellow.value, Colors.Yellow.value])
+    // this.configuration.AddBottle(bottle);
+    // bottle = new Bottle(4)
+    // this.configuration.AddBottle(bottle);
+    // bottle = new Bottle(4)
+    // this.configuration.AddBottle(bottle);
+    // bottle = new Bottle(4)
+    // this.configuration.AddBottle(bottle);
+    // bottle = new Bottle(4)
+    // this.configuration.AddBottle(bottle);
+    // bottle = new Bottle(4)
+    // this.configuration.AddBottle(bottle);
 
     /*let bottle: Bottle = new Bottle(4, [Colors.Blue.value, Colors.Blue.value, Colors.Green.value, Colors.Green.value]);
     this.configuration.AddBottle(bottle);
