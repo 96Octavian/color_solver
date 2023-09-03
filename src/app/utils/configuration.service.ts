@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Bottle } from './bottle';
-import { Colors } from './color';
 import { Configuration } from './configuration';
 import { Stack } from './stack';
+import { Bottle } from './bottle';
+import { Colors } from './color';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +26,6 @@ export class ConfigurationService {
   }
 
   constructor() {
-    this.configurations.push(this.configuration);
-    this.configurationsTree.add(this.configuration.ToString());
 
     let bottle = new Bottle(4, [Colors.Green.value, Colors.Blue.value, Colors.Pink.value, Colors.Yellow.value])
     this.configuration.AddBottle(bottle);
@@ -70,11 +68,16 @@ export class ConfigurationService {
 
   Clear(): void {
     this.configuration.Clear();
-    this.configuration.Clear();
+    this.configurationsTree.clear();
     this.configurations.clear();
   }
   Solve(): Promise<boolean> {
     this.solving = true;
+    this.configurationsTree.clear();
+    this.configurations.clear();
+    this.configurations.push(this.configuration);
+    this.configurationsTree.add(this.configuration.ToString());
+
     return new Promise((resolve, reject) => {
       try {
         while (!this.IsSolved && !this.configurations.isEmpty())

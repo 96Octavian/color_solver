@@ -1,5 +1,7 @@
 :host {
   width: 100%;
+  min-width: 100%;
+  min-height: 100%;
   background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
   display: flex;
   flex-direction: column;
@@ -9,6 +11,7 @@
 }
 
 .solution-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -16,9 +19,8 @@
   align-items: center;
 }
 
-.unsolved-card-container {
+.unsolved-card {
   display: flex;
-  height: 100%;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
