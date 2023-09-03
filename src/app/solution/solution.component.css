@@ -1,12 +1,23 @@
 :host {
   width: 100%;
-  min-width: 100%;
-  min-height: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-around;
+
+  overflow: auto;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+
+    /* Hide the scrollbar */
+    &::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, and Opera */
+    }
 }
 
 .solution-container {
