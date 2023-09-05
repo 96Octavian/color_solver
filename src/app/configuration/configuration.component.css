@@ -37,8 +37,8 @@
     background: rgba(255, 255, 255, 0.1);
     border-top-right-radius: 1000% 15rem;
     border-top-left-radius: 1000% 15rem;
-    border-bottom-left-radius: 50rem;
-    border-bottom-right-radius: 50rem;
+    border-bottom-left-radius: 60rem;
+    border-bottom-right-radius: 60rem;
     border: 0.5rem solid transparent;
 }
 

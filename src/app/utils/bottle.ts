@@ -34,21 +34,13 @@ export class Bottle {
   public get IsComplete(): boolean {
     return this.colors.every(c => c == this.colors[0])
   }
+  public get PercentageHeight(): number { return 100 / this.colors.length; }
 
-  constructor(private capacity: number, colors: HEX[] = []) {
+  constructor(private readonly capacity: number, colors: HEX[] = []) {
     this.colors = Array(capacity);
     this.colors.fill(Colors.Empty.value);
-    colors.forEach((color) => this.colors[this.Level] = color);
+    colors.forEach((c) => this.colors[this.Level] = c);
   }
-  public get PercentageHeight(): number { return 100 / this.colors.length; }
-  // public SetColor(color: HEX, index: number) {
-  //   if (index < this.colors.length) {
-  //     this.colors[index] = color;
-  //   }
-  //   else {
-  //     console.log("Could not add color " + color);
-  //   }
-  // }
 
   public PopTopColors(amount: number = 0): HEX[] {
     if (amount > this.TopColorsCount)

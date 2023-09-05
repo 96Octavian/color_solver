@@ -8,20 +8,21 @@ import { Colors } from './color';
   providedIn: 'root'
 })
 export class ConfigurationService {
-  private configurationsTree: Set<string> = new Set<string>();
-  private configurations: Stack<Configuration> = new Stack<Configuration>();
-
   private configuration: Configuration = new Configuration();
   public get Configuration(): Configuration {
     return this.configuration
   }
 
+  private readonly configurationsSet: Set<string> = new Set<string>();
+  private readonly configurationsStack: Stack<Configuration> = new Stack<Configuration>();
+
+
   private solving: boolean = false;
   public get IsSolving(): boolean {
     return this.solving;
   }
-  public get SolvingConfiguration(): Configuration | any {
-    return this.configurations.Items.find(c => c.IsSolved);
+  public get SolvingConfiguration(): Configuration | undefined {
+    return this.configurationsStack.Items.find(c => c.IsSolved);
   }
 
   public get IsSolved(): boolean {
@@ -63,27 +64,25 @@ export class ConfigurationService {
     // bottle = new Bottle(4, [Colors.Green.value, Colors.Green.value, Colors.Green.value]);
     // this.configuration.AddBottle(bottle);
     // bottle = new Bottle(4, [Colors.Pink.value, Colors.Pink.value]);
-    console.log("Configuration service has been constructed!");
   }
 
   Clear(): void {
-    console.log("[ConfigurationService] Clearing...")
     this.configuration = new Configuration();
-    this.configurationsTree = new Set<string>();
-    this.configurations = new Stack<Configuration>();
+    this.configurationsSet.clear();
+    this.configurationsStack.clear();
   }
-  Solve(): Promise<boolean> {
+  Solve(): Promise<void> {
     this.solving = true;
-    // this.configurationsTree.clear();
-    // this.configurations.clear();
-    this.configurations.push(this.configuration);
-    this.configurationsTree.add(this.configuration.ToString());
+    this.configurationsSet.clear();
+    this.configurationsStack.clear();
+    this.configurationsStack.push(this.configuration);
+    this.configurationsSet.add(this.configuration.ToString());
 
     return new Promise((resolve, reject) => {
       try {
-        while (!this.IsSolved && !this.configurations.isEmpty())
+        while (!this.IsSolved && !this.configurationsStack.isEmpty())
           this.GenerateMoves();
-        resolve(true);
+        resolve();
       } catch (error) {
         reject(error);
       }
@@ -94,7 +93,7 @@ export class ConfigurationService {
   }
 
   GenerateMoves(): boolean {
-    let current = this.configurations.pop();
+    let current = this.configurationsStack.pop();
     if (current === undefined) {
       return false;
     }
@@ -109,14 +108,14 @@ export class ConfigurationService {
     // console.log("Next moves:");
     // current.ChildConfigurations.forEach(m=>console.log(m.ToString()));
 
-    moves = moves.filter(m => !this.configurationsTree.has(m.ToString()));
+    moves = moves.filter(m => !this.configurationsSet.has(m.ToString()));
 
     // console.log("Next moves filtered:");
     // moves.forEach(m=>console.log(m.ToString()));
 
     moves.forEach((m) => {
-      this.configurations.push(m);
-      this.configurationsTree.add(m.ToString());
+      this.configurationsStack.push(m);
+      this.configurationsSet.add(m.ToString());
     })
 
     return moves.length > 0;

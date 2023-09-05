@@ -21,29 +21,24 @@ export class SolutionComponent implements OnInit {
   constructor(private configurationService: ConfigurationService, private router: Router) {
   }
   ngOnInit(): void {
-    // console.log("Configuration:");
-    // console.log(this.configurationService.Configuration.ToString());
     this.configurationService.Solve()
-      .then((data) => {
-        // console.log("Stopped solving:", data);
-        // if (this.configurationService.IsSolved)
-        //   this.SolvingConfigurationChain.forEach((c) => console.log(c.ToString()));
-        // else
-        //   console.log("No solution found");
+      .then(() => {
+        console.log("Stopped solving");
+        console.log("Service " + this.configurationService.IsSolved ? "found" : "did not find" + " a solution");
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-    // console.log("Asked service to solve");
+    console.log("Asked service to solve");
   }
 
   public get SolvingConfigurationChain(): Configuration[] {
     let confs = new Array<Configuration>();
     if (!this.configurationService.IsSolved)
       return confs;
-    confs.push(this.configurationService.SolvingConfiguration);
+    confs.push(this.configurationService.SolvingConfiguration!);
     while (confs[confs.length - 1].FatherConfiguration !== undefined) {
-      confs.push(confs[confs.length - 1].FatherConfiguration);
+      confs.push(confs[confs.length - 1].FatherConfiguration!);
     }
     return confs.reverse();
   }
